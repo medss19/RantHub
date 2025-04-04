@@ -128,6 +128,22 @@
     </main>
 
     {% include 'footer.html' %}
+
+    <script>
+        async function fetchVisits() {
+            try {
+                let response = await fetch("https://api.countapi.xyz/hit/ranthub.onrender.com/visits");
+                let data = await response.json();
+                let visitorCount = document.getElementById("visitor-count");
+                if (visitorCount) {
+                    visitorCount.innerText = `Visits: ${data.value}`;
+                }
+            } catch (error) {
+                console.error("Error fetching visit count:", error);
+            }
+        }
+        document.addEventListener("DOMContentLoaded", fetchVisits);
+    </script>
 </body>
 
 </html>

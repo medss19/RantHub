@@ -34,12 +34,25 @@ def get_sorted_posts(id):
     
 @app.route('/problem/<id>/post', methods=['POST'])
 def add_post(id):
-    content = request.form.get('content')
-    
-    if content:
-        add_post_to_db(id, content, None)  # No image URL
-    
-    return redirect(f'/problem/{id}')
+    # Check if the request is JSON (from AJAX) or form data (from traditional form)
+    if request.is_json:
+        # Handle JSON request from AJAX
+        data = request.get_json()
+        content = data.get('content')
+        
+        if content:
+            add_post_to_db(id, content, None)  # No image URL
+            return jsonify({"success": True})
+        else:
+            return jsonify({"success": False, "message": "Content is required"}), 400
+    else:
+        # Handle traditional form submission
+        content = request.form.get('content')
+        
+        if content:
+            add_post_to_db(id, content, None)  # No image URL
+        
+        return redirect(f'/problem/{id}')
 
 @app.route('/api/post/<post_id>/upvote', methods=['POST'])
 def handle_upvote(post_id):

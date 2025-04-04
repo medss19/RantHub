@@ -5,7 +5,7 @@
                 <button type="button" class="close-btn" id="closePostBtn">&times;</button>
             </div>
             <div class="post-modal-body">
-                <form action="/problem/{{problem['id']}}/post" method="post">
+                <form id="postForm">
                     <textarea class="post-textarea" name="content" rows="4" placeholder="go on and post your chik chiks..."></textarea>
                     <div class="post-actions">
                         <!-- <div class="post-tools">
@@ -155,6 +155,50 @@ document.addEventListener('DOMContentLoaded', function() {
     if (postModal) {
         postModal.addEventListener('click', function(e) {
             e.stopPropagation();
+        });
+    }
+    
+    // Handle form submission with AJAX
+    const postForm = document.getElementById('postForm');
+    if (postForm) {
+        postForm.addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevent normal form submission
+            
+            const content = document.querySelector('.post-textarea').value;
+            // Extract problem ID from URL (format: /problem/:id/posts)
+            const pathParts = window.location.pathname.split('/');
+            const problemId = pathParts[pathParts.indexOf('problem') + 1];
+            
+            fetch(`/problem/${problemId}/post`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    content: content
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // Close the modal
+                    document.getElementById('postOverlay').style.display = 'none';
+                    
+                    // Refresh the posts without page reload
+                    const sortMethod = document.querySelector('.sort-btn.active') ? 
+                        document.querySelector('.sort-btn.active').getAttribute('data-sort') : 'newest';
+                    
+                    fetch(`/api/problem/${problemId}/posts?sort=${sortMethod}`)
+                        .then(response => response.json())
+                        .then(posts => {
+                            updatePostsDisplay(posts);
+                            
+                            // Clear the form
+                            document.querySelector('.post-textarea').value = '';
+                        });
+                }
+            })
+            .catch(error => console.error('Error:', error));
         });
     }
     

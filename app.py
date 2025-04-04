@@ -1,5 +1,6 @@
 from flask import Flask, render_template, jsonify, request, redirect
 from database import load_problems_from_db, load_problem_from_db, add_post_to_db, load_posts_for_problem, upvote_post, load_sorted_posts
+import requests
 
 app = Flask(__name__)
 
@@ -68,6 +69,15 @@ def handle_upvote(post_id):
             'success': False,
             'message': 'Post not found'
         }), 404
+        
+@app.route('/visitor-count')
+def visitor_count():
+    url = "https://api.countapi.xyz/hit/ranthub.onrender.com/visits"
+    try:
+        response = requests.get(url)
+        return jsonify(response.json())  # Forward the JSON response
+    except requests.exceptions.RequestException as e:
+        return jsonify({"error": str(e)}), 500
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", debug=True)

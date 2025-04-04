@@ -1,0 +1,168 @@
+<div id="postOverlay" class="overlay">
+    <div class="post-modal">
+        <div class="post-modal-content">
+            <div class="post-modal-header">
+                <button type="button" class="close-btn" id="closePostBtn">&times;</button>
+            </div>
+            <div class="post-modal-body">
+                <form action="/problem/{{problem['id']}}/post" method="post">
+                    <textarea class="post-textarea" name="content" rows="4" placeholder="go on and post your chik chiks..."></textarea>
+                    <div class="post-actions">
+                        <!-- <div class="post-tools">
+                            <button type="button" class="tool-btn" id="addStickerBtn">
+                                <i class="bi bi-sticky"></i> Sticker
+                            </button>
+                        </div> -->
+                        <button type="submit" class="post-btn">Shoot</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+/* Overlay style */
+.overlay {
+    /* display: none; */
+    position: fixed;
+    top: 0;
+    /* left: 0; */
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    /* Center the modal */
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+}
+
+/* The modal itself */
+.post-modal {
+    background-color: white;
+    width: 500px;
+    max-width: 90%;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 1001;
+}
+
+.post-modal-header {
+    padding: 10px;
+    text-align: right;
+    border-bottom: 1px solid #eee;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.post-modal-body {
+    padding: 15px;
+}
+
+.post-textarea {
+    width: 100%;
+    border: none;
+    resize: none;
+    padding: 10px;
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+.post-textarea:focus {
+    outline: none;
+}
+
+.post-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.post-tools {
+    display: flex;
+    gap: 10px;
+}
+
+.tool-btn {
+    background: none;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    padding: 5px 15px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #555;
+}
+
+.post-btn {
+    background-color: #0d6efd;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 20px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+/* Hide the overlay when not displayed */
+.overlay[style="display: none;"] {
+    display: none !important;
+}
+</style>
+
+<script>
+// Initially hide the overlay
+document.addEventListener('DOMContentLoaded', function() {
+    // Initially hide the overlay
+    if (document.getElementById('postOverlay')) {
+        document.getElementById('postOverlay').style.display = 'none';
+    }
+    
+    // Setup click handler for the open post button
+    const openPostBtn = document.getElementById('openPostBtn');
+    if (openPostBtn) {
+        openPostBtn.addEventListener('click', function() {
+            document.getElementById('postOverlay').style.display = 'flex';
+        });
+    }
+    
+    // Setup click handler for the close button
+    const closePostBtn = document.getElementById('closePostBtn');
+    if (closePostBtn) {
+        closePostBtn.addEventListener('click', function() {
+            document.getElementById('postOverlay').style.display = 'none';
+        });
+    }
+    
+    // Close overlay when clicking outside the modal
+    const postOverlay = document.getElementById('postOverlay');
+    if (postOverlay) {
+        postOverlay.addEventListener('click', function(e) {
+            if (e.target === this) {
+                this.style.display = 'none';
+            }
+        });
+    }
+    
+    // Prevent clicks inside the modal from closing it
+    const postModal = document.querySelector('.post-modal');
+    if (postModal) {
+        postModal.addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
+    }
+    
+    const addStickerBtn = document.getElementById('addStickerBtn');
+    if (addStickerBtn) {
+        addStickerBtn.addEventListener('click', function() {
+            alert('Sticker selector would open here');
+        });
+    }
+});
+</script>

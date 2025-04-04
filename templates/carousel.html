@@ -1,0 +1,77 @@
+<style>
+    .carousel {
+        margin-bottom: 4rem;
+    }
+
+    .carousel-caption {
+        bottom: 3rem;
+        z-index: 10;
+    }
+
+    .carousel-item {
+        height: 32rem;
+    }
+
+    .carousel-img {
+        width: 100%;
+        height: 100vh;
+        object-fit: cover;
+        object-position: center;
+    }
+</style>
+
+<div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true"
+            aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="/static/banner.webp" class="carousel-img bd-placeholder-img img-fluid" alt="banner">
+            <div class="overlay"></div>
+            <div class="container">
+                <div class="carousel-caption text-start">
+                    <h1>Yo, We Need More Hands!</h1>
+                    <p class="opacity-75">Bring your friends in, let them upvote your posts, and lets make it reach the
+                        right people see what needs fixing!</p>
+                    <!-- <p><a class="btn btn-lg btn-primary" href="#">Sign up today</a></p> -->
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="/static/banner2.webp" class="carousel-img bd-placeholder-img img-fluid" alt="banner">
+            <div class="overlay"></div>
+            <div class="container">
+                <div class="carousel-caption">
+                    <h1>Sip Tea, Spill Tea!</h1>
+                    <p>Got campus drama that needs fixing? We're slurping up your problems faster than these
+                        milkshakes!</p>
+                    <!-- <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p> -->
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="/static/banner3.jpg" class="carousel-img bd-placeholder-img img-fluid" alt="banner">
+            <div class="overlay"></div>
+            <div class="container">
+                <div class="carousel-caption text-end">
+                    <h1>Bruh, We're Listening!</h1>
+                    <p>Like these guys pretending to care about each other's problems, we actually DO care about
+                        yours. No cap.</p>
+                    <p><a class="btn btn-lg btn-primary"
+                            href="https://matias.me/nsfw/?fbclid=PAZXh0bgNhZW0CMTEAAabqeFv8v6p0uHlJTGdkP3BkzKrPP7E0c63O60o3_GiO18VZSs6m5hk2rAs_aem_bUJiaff_DxND7jNiCtoMsQ">Face Reveal</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>

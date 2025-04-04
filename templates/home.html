@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    {% include 'bootstrap.html' %}
+    <title>Home</title>
+
+    <style>
+
+        /* About */
+        .featurette-divider {
+            margin: 5rem 0;
+        }
+
+        @media (min-width: 40em) {
+            .carousel-caption p {
+                margin-bottom: 1.25rem;
+                font-size: 1.25rem;
+                line-height: 1.4;
+            }
+
+            .featurette-heading {
+                font-size: 50px;
+            }
+        }
+
+        @media (min-width: 62em) {
+            .featurette-heading {
+                margin-top: 7rem;
+            }
+        }
+
+        .featurette-image {
+            width: 500px;
+            height: 500px;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+    </style>
+</head>
+
+<body>
+
+    {% include 'header.html' %}
+
+    <main>
+        {% include 'carousel.html' %}
+
+        <!-- Problems Section -->
+        <div id="problems" class="container marketing">
+            <div class="row">
+                {% for problem in problems %}
+                    {% include 'problems.html' %}
+                {% endfor %}
+            </div>
+
+            <!-- About Section -->
+            <hr class="featurette-divider">
+
+            <div id="about" class="row featurette">
+                <div class="col-md-7">
+                    <h2 class="featurette-heading fw-normal lh-1">Problems Got You Down? <span
+                            class="text-body-secondary">Hold Up, Let the Capy Cook! </span></h2>
+                    <p class="lead">These chill capys know what's up! Post your issues, cry your whines, cause we ain't the problem solvers, we just cook hot stuff here.</p>
+                </div>
+                <div class="col-md-5">
+                    <img src="/static/capy.webp" class="featurette-image img-fluid mx-auto" width="500" height="500"
+                        role="img" aria-label="Capybara">
+                </div>
+            </div>
+
+            <hr class="featurette-divider">
+
+            <div class="row featurette">
+                <div class="col-md-7 order-md-2">
+                    <h2 class="featurette-heading fw-normal lh-1">Shrek be like —<span
+                            class="text-body-secondary">"OMG too many gossips"</span></h2>
+                    <p class="lead">Problems be getting thiccer and nastier, was on my way out to get the Latinas but what the F. Gotta upvote the hotter posts. </p>
+                </div>
+                <div class="col-md-5 order-md-1">
+                    <img src="/static/shrek.jpeg" class="featurette-image img-fluid mx-auto" width="500" height="500"
+                        role="img" aria-label="Shrek">
+
+                </div>
+            </div>
+
+            <hr class="featurette-divider">
+
+            <div class="row featurette">
+                <div class="col-md-7">
+                    <h2 class="featurette-heading fw-normal lh-1">And hey, don’t forget —<span
+                            class="text-body-secondary">NSFW off, good vibes on!</span></h2>
+                    <p class="lead">No strict rules (for now), just a simple ask—keep it chill, keep it real. No
+                        vulgarity, no nonsense. Post, comment, upvote, and have fun, but let’s not break the unspoken
+                        social code.</p>
+                </div>
+                <div class="col-md-5">
+                    <img src="/static/kungfu.webp" class="featurette-image img-fluid mx-auto" width="500" height="500"
+                        role="img" aria-label="Kungfu">
+                </div>
+            </div>
+
+            <hr class="featurette-divider">
+
+        </div>
+    </main>
+
+    {% include 'footer.html' %}
+</body>
+
+</html>

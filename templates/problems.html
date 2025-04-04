@@ -1,0 +1,20 @@
+<style>
+        /* PROBLEMS CONTENT */
+        .marketing .col-lg-4 {
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .marketing .col-lg-4 p {
+            margin-right: .75rem;
+            margin-left: .75rem;
+        }
+</style>
+
+<div class="col-lg-4">
+    <img src="{{problem.image_path}}" class="bd-placeholder-img rounded-circle" width="140" height="140"
+        role="img" aria-label="Hostel" preserveAspectRatio="xMidYMid slice" focusable="false">
+    <h2 class="fw-normal">{{problem.title}}</h2>
+    <p>{{problem.description}}</p>
+    <p><a class="btn btn-secondary" href="/problem/{{problem['id']}}">View rants &raquo;</a></p>
+</div>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% include 'bootstrap.html' %}
+        <title>Terms & Conditions</title>
+        <style>
+            h1, h3{
+                font-weight: 900;
+                color: rgb(40, 40, 40);
+                margin-top: 20px;
+            }
+
+            p {
+                font-size: 1.2rem;
+            }
+        </style>
+    </head>
+    <body>
+        {% include 'header.html' %}
+        
+        <div class="container mt-4">
+            <figure>
+                <blockquote class="blockquote">
+                    <h1 class="text-primary mt-4">Terms & Conditions</h1>
+                </blockquote>
+                <figcaption class="blockquote-footer">
+                    Someone unemployed in <cite title="Source Title">Bennett</cite> (as of now)
+                </figcaption>
+            </figure>
+            
+            <ol class="mt-4">
+                <h3><li>Welcome to Chaos</li></h3>
+                <p>By using this platform, <mark>you agree to accept reality</mark> as it is—full of WiFi dropouts, unresponsive admins, and mess food that defies physics.</p>
+                
+                <h3><li>No Crying Over Spilled Chai</li></h3>
+                <p>Posts about hostel life, messy messes, and rogue laundry machines are encouraged. However, excessive ranting might result in… well, nothing, because we’re all in this together.</p>
+                
+                <h3><li>Bugs? Features.</li></h3>
+                <p>Any glitches or issues you find on this platform are either:<br>
+                (a) a feature,<br>
+                (b) your WiFi acting up,<br>
+                (c) a sign that you should <mark>touch grass</mark>.</p>
+                
+                <h3><li>Admin's Attention ≠ Immediate Fixes</li></h3>
+                <p>Upvoting problems may increase visibility, but let’s be real—solving them is a whole different ball game.</p>
+                
+                <h3><li>Privacy? What Privacy?</li></h3>
+                <p>Your posts are public. If you don’t want to be quoted in a viral meme, <em>choose your words wisely</em>.</p>
+                
+                <h3><li>We Take Zero Responsibility</li></h3>
+                <p>Your mess food experiences, hostel nightmares, and laundry losses are yours alone. The admin will not reimburse missing socks.</p>
+                
+                <h3><li>Changes to These Terms</li></h3>
+                <p>We reserve the right to update these terms at any time—though let’s be honest, <s>you weren’t gonna read them anyway</s>.</p>
+            </ol>
+            
+            <div class="alert alert-primary mt-4" role="alert">
+                💡 Enjoy the platform, report responsibly, and may the odds be ever in your favor.
+            </div>
+        </div>
+        {% include 'footer.html' %}
+    </body>
+</html>

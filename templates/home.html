@@ -2,11 +2,21 @@
 <html>
 
 <head>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-78DDWZZSF5"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-78DDWZZSF5');
+    </script>
+
     {% include 'bootstrap.html' %}
     <title>Home</title>
 
     <style>
-
         /* About */
         .featurette-divider {
             margin: 5rem 0;
@@ -60,7 +70,7 @@
         <div id="problems" class="container marketing">
             <div class="row">
                 {% for problem in problems %}
-                    {% include 'problems.html' %}
+                {% include 'problems.html' %}
                 {% endfor %}
             </div>
 
@@ -71,7 +81,8 @@
                 <div class="col-md-7">
                     <h2 class="featurette-heading fw-normal lh-1">Problems Got You Down? <span
                             class="text-body-secondary">Hold Up, Let the Capy Cook! </span></h2>
-                    <p class="lead">These chill capys know what's up! Post your issues, cry your whines, cause we ain't the problem solvers, we just cook hot stuff here.</p>
+                    <p class="lead">These chill capys know what's up! Post your issues, cry your whines, cause we ain't
+                        the problem solvers, we just cook hot stuff here.</p>
                 </div>
                 <div class="col-md-5">
                     <img src="/static/capy.webp" class="featurette-image img-fluid mx-auto" width="500" height="500"
@@ -83,9 +94,10 @@
 
             <div class="row featurette">
                 <div class="col-md-7 order-md-2">
-                    <h2 class="featurette-heading fw-normal lh-1">Shrek be like —<span
-                            class="text-body-secondary">"OMG too many gossips"</span></h2>
-                    <p class="lead">Problems be getting thiccer and nastier, was on my way out to get the Latinas but what the F. Gotta upvote the hotter posts. </p>
+                    <h2 class="featurette-heading fw-normal lh-1">Shrek be like —<span class="text-body-secondary">"OMG
+                            too many gossips"</span></h2>
+                    <p class="lead">Problems be getting thiccer and nastier, was on my way out to get the Latinas but
+                        what the F. Gotta upvote the hotter posts. </p>
                 </div>
                 <div class="col-md-5 order-md-1">
                     <img src="/static/shrek.jpeg" class="featurette-image img-fluid mx-auto" width="500" height="500"
